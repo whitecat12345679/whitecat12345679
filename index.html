@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Side | Galaxy Fan</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #030611;
+    color: white;
+    text-align: center;
+}
+
+header {
+    padding: 22px;
+    background: #080b13;
+    border-bottom: 1px solid #343b50;
+    letter-spacing: 3px;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.hero {
+    padding: 65px 20px 45px;
+    background:
+        radial-gradient(ellipse at left, #063c75, transparent 55%),
+        radial-gradient(ellipse at right, #710d16, transparent 55%),
+        #030611;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 7vw, 58px);
+    margin: 15px 0;
+    letter-spacing: 5px;
+}
+
+.hero p {
+    color: #c6ccdc;
+    line-height: 1.8;
+}
+
+.paths {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 25px;
+    border-radius: 16px;
+    background: #080d1b;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.jedi {
+    border: 2px solid #168cff;
+    box-shadow: 0 0 18px #0066aa44;
+}
+
+.sith {
+    border: 2px solid #ff303d;
+    box-shadow: 0 0 18px #aa001c44;
+}
+
+.symbol {
+    font-size: 55px;
+}
+
+.jedi h2 {
+    color: #38aaff;
+    letter-spacing: 5px;
+}
+
+.sith h2 {
+    color: #ff4545;
+    letter-spacing: 5px;
+}
+
+.card p {
+    color: #c4c9d7;
+    line-height: 1.7;
+    min-height: 80px;
+}
+
+button {
+    padding: 14px 24px;
+    border-radius: 30px;
+    color: white;
+    background: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.jedi button {
+    border: 2px solid #168cff;
+}
+
+.jedi button:hover {
+    background: #168cff;
+    box-shadow: 0 0 20px #168cff;
+}
+
+.sith button {
+    border: 2px solid #ff303d;
+}
+
+.sith button:hover {
+    background: #ff303d;
+    box-shadow: 0 0 20px #ff303d;
+}
+
+#result {
+    display: none;
+    margin: 25px auto 45px;
+    padding: 30px 20px;
+    max-width: 700px;
+    width: 90%;
+    border-radius: 14px;
+    background: #0b1020;
+}
+
+#result h2 {
+    font-size: 30px;
+}
+
+#result p {
+    line-height: 1.8;
+    color: #d3d8e8;
+}
+
+footer {
+    padding: 25px 15px;
+    border-top: 1px solid #30374a;
+    color: #8992a8;
+    font-size: 13px;
+}
+
+@media (max-width: 500px) {
+    .hero {
+        padding-top: 40px;
+    }
+
+    .card {
+        padding: 28px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>happy b'day nysa!</h2>
+</header>
+
+<section class="hero">
+    <p>THE FORCE IS CALLING BRO</p>
+    <h1>CHOOSE YOUR SIDE</h1>
+    <p>
+        Two paths. One birthday.<br>
+        Will you follow ur shortness or embrace ur unhealthy crush?
+    </p>
+</section>
+
+<h2>WHICH SIDE ARE YOU ON?</h2>
+
+<section class="paths">
+
+    <div class="card jedi">
+        <div class="symbol">🔵</div>
+        <h2>JEDI</h2>
+        <p>
+            be one with the force.<br>
+            yoda, luke and hans solo 
+            ik worse option but idk 
+        </p>
+        <button onclick="chooseSide('blue')">
+            CHOOSE BLUE
+        </button>
+    </div>
+
+    <div class="card sith">
+        <div class="symbol">🔴</div>
+        <h2>SITH</h2>
+        <p>
+            darth vader .<br>
+            enough said
+        </p>
+        <button onclick="chooseSide('red')">
+            CHOOSE RED
+        </button>
+    </div>
+
+</section>
+
+<section id="result">
+    <h2 id="resultTitle"></h2>
+    <p id="resultText"></p>
+    <button onclick="resetChoice()">
+        CHOOSE AGAIN
+    </button>
+</section>
+
+<footer>
+    A TRAP FOR SHORT PEOPLE
+    <p>May the Force be with you.</p>
+</footer>
+
+<script>
+function chooseSide(side) {
+    const result = document.getElementById("result");
+    const title = document.getElementById("resultTitle");
+    const text = document.getElementById("resultText");
+
+    result.style.display = "block";
+
+    if (side === "blue") {
+        document.body.style.background =
+            "radial-gradient(ellipse at top, #09284c, #030611 65%)";
+
+        title.style.color = "#38aaff";
+        title.innerText = "WELCOME, JEDI! 🔵";
+
+        text.innerText =
+            "You have chosen the light side. why whose? choosing this. " +
+            "be luke  " +
+            "ur lazy ahh not doing all that bro ";
+    } else {
+        document.body.style.background =
+            "radial-gradient(ellipse at top, #4b0914, #030611 65%)";
+
+        title.style.color = "#ff4545";
+        title.innerText = "WELCOME, SITH! 🔴";
+
+        text.innerText =
+            "You have embraced the dark side. but ur not anakin nysa " +
+            "u thought ur edgy ahh is a sith lord ..." +
+            "no anakin for u nysa ur padme.";
+    }
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function resetChoice() {
+    document.getElementById("result").style.display = "none";
+    document.body.style.background = "#030611";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
